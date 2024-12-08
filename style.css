@@ -98,7 +98,17 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center center; /* Ensures the image is centered */
+    background-attachment: fixed; /* Optional: for a parallax effect on larger screens */
 }
+
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll; /* Disable fixed background on smaller screens for better performance */
+    }
+}
+
 
 .hero h1 {
     font-size: 2.5rem;
