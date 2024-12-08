@@ -1,0 +1,574 @@
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #333;
+    background: #e6e6e6;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgb(241, 243, 243);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 60px;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #10069ed8;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color:rgba(33, 3, 139, 0.808);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #FFD700;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: #02006dda;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+    .nav-links li a {
+        color:white;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    color: #ffffff;
+    background: url('img/profile.jpeg') center/cover no-repeat;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin: 0 20px;
+}
+
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 100px;
+    height: 3px;
+    background-color: #34c7a3;
+    transform: translateX(-50%);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    justify-items: center; 
+   
+}
+
+.about-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid #4CAF50;
+    padding-bottom: 10px;
+   
+}
+
+.about-card:hover{
+    transform: scale(0.9);
+
+}
+
+.about-card h3 {
+    font-size: 1.75rem;
+    color: #34c7a3;
+}
+
+.about-card p {
+    font-size: 1rem;
+    color: #555;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-columns: 1fr 1fr; /* Keep two columns */
+    }
+
+    .about-card {
+        flex: 1 1 calc(45% - 20px); /* Two cards side by side */
+        max-width: 100%; /* Ensure cards don't overflow */
+    }
+}
+
+/* Smaller screens (phones) */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .about-card {
+        width: 100%; /* Full-width on small screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .about-card h3 {
+        font-size: 1.5rem; /* Slightly smaller headings on mobile */
+    }
+
+    .about-card p {
+        font-size: 0.9rem; /* Slightly smaller text on mobile */
+        padding: 10px;
+    }
+}
+
+/* Very small screens (portrait phones) */
+@media (max-width: 480px) {
+    .about-card {
+        padding: 10px; /* Less padding for very small screens */
+    }
+
+    .about-card h3 {
+        font-size: 1.25rem; /* Smaller heading on very small screens */
+    }
+
+    .about-card p {
+        font-size: 0.85rem; /* Adjust text size */
+    }
+}
+
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid #4CAF50;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card h2 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+}
+
+#services h2{
+    text-align: center;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  
+}
+.card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #666;
+}
+
+/* Contact Section */
+.contact {
+    background-color: #f4f4f4;
+    padding: 3rem 1rem;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    
+}
+
+.contact-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact ul li {
+    margin-bottom: 0.5rem;
+}
+
+.contact-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: transparent;
+
+    color: rgb(37, 30, 30);
+    border: 1px solid gray;
+    
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #388E3C;
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(90deg, #4CAF50, #388E3C);
+    color: #fff;
+    font-size: 0.9rem;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* Schedule Card */
+.schedule-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.schedule-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    text-align: center;
+    border: 2px solid #4caf50;
+    transition: transform 0.3s ease;
+}
+
+.schedule-card:hover {
+    transform: scale(1.05);
+}
+
+.schedule-card h3 {
+    color: #4caf50;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.schedule-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.schedule-card li {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #555;
+}
+
+.schedule-card li strong {
+    font-weight: bold;
+    color: #333;
+}
+
+.schedule-card li svg {
+    margin-right: 5px;
+}
+
+/* Leadership Section */
+.leadership-section {
+    background-color: #f9f9f9;
+    padding: 3rem 1rem;
+    margin-top: 50px; /* To create space between the previous section */
+}
+
+.leadership-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.leadership-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.leadership-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid #4CAF50;
+}
+
+.leadership-card:hover {
+    transform: scale(1.05);
+}
+
+.leadership-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.leadership-card h3 {
+    font-size: 1.5rem;
+    color: #4CAF50;
+    margin-bottom: 0.5rem;
+}
+
+.leadership-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .leadership-cards {
+        grid-template-columns: 1fr; /* Stack leadership cards vertically on small screens */
+    }
+}
+
+/* Leadership Section */
+.leadership {
+    padding: 3rem 1rem;
+    background-color: #f4f4f4;
+}
+
+.leadership-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.leadership-list li {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.leadership-list li:hover {
+    background-color: #34c7a3;
+    color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
